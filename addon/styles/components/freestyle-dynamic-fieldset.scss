@@ -1,0 +1,30 @@
+.FreestyleDynamicFieldset {
+  border: groove 2px ThreeDFace;
+  border-radius: 4px;
+  display: table;
+  padding: 8px 12px;
+
+  legend {
+    color: #333;
+    font-size: 0.8em;
+    text-transform: uppercase;
+  }
+}
+.FreestyleDynamic-input {
+  display: table-row;
+  margin-bottom: 10px;
+
+  label {
+    display: table-cell;
+    padding-right: 8px;
+    text-align: right;
+  }
+
+  input, textarea, select {
+    display: table-cell;
+  }
+}
+
+.FreestyleDynamic-inputDescription {
+  display: block;
+}

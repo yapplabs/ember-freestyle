@@ -2,21 +2,11 @@
   {{freestyle-filterable-title title=title setFocus=(action 'setFocus')}}
   {{#freestyle-annotation}}
     <form class="FreestyleDynamic-form">
-      <fieldset>
-        <legend>{{headerTitle}}</legend>
-        {{#each-in dynamicProperties as |propertyName propertyHash|}}
-          {{freestyle-dynamic-input
-            propertyName=propertyName
-            value=propertyHash.value
-            options=propertyHash.options
-            inputType=propertyHash.inputType
-            description=propertyHash.description
-            min=propertyHash.min
-            max=propertyHash.max
-            changeValueTo=(action 'changeValueTo' propertyName)
-          }}
-        {{/each-in}}
-      </fieldset>
+      {{freestyle-dynamic-fieldset
+          dynamicProperties=dynamicProperties
+          headerTitle=headerTitle
+          changeValueTo=(action 'changeValueTo')
+      }}
     </form>
   {{/freestyle-annotation}}
 
