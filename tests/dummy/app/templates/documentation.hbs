@@ -129,7 +129,7 @@
 \{{/freestyle-collection}}
   </code></pre>
 
-  <h3>freestyle-dynamic</h3>
+  <h3>freestyle-dynamic and freestyle-dynamic-collection</h3>
 
   <p>
     Use <code>freestyle-dynamic</code> as an alternative to <code>freestyle-usage</code>
@@ -171,6 +171,41 @@
   <p>
     Currently supported input types are text, number, textarea, checkbox, select, and range.
   </p>
+
+  <p>
+    Close cousin <code>freestyle-dynamic-collection</code> is an alternative to <code>freestyle-collection</code>
+    that provides for the a form/input controls as well as freestyle-collection's variant menu.
+  </p>
+
+  <pre><code class="handlebars language-handlebars">
+  \{{#freestyle-dynamic-collection 'dynamic-properties-collection'
+    dynamicProperties=dynamicProperties
+    defaultKey="a"
+    title='Dynamic Properties Collection'
+    as |collection dynamic|
+  }}
+    \{{#collection.variant key="a"}}
+      \{{#freestyle-usage "a-tasteful"
+        title="A Tasteful"
+        dynamicProperties=dynamicProperties
+      }}
+        <p class="dynamic-properties-variant-a">
+          Variant A is tasteful: \{{dynamic.isTasteful}}
+        </p>
+      \{{/freestyle-usage}}
+    \{{/collection.variant}}
+    \{{#collection.variant key="b"}}
+      \{{#freestyle-usage "b-tasteful"
+        title="B Tasteful"
+        dynamicProperties=dynamicProperties
+      }}
+        <p class="dynamic-properties-variant-b">
+          Variant B is tasteful: \{{dynamic.isTasteful}}
+        </p>
+      \{{/freestyle-usage}}
+    \{{/collection.variant}}
+  \{{/freestyle-dynamic-collection}}
+  </code></pre>
 
   <h3>freestyle-note + freestyle-annotation</h3>
 

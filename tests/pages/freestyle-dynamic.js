@@ -9,11 +9,11 @@ import PageObject, {
   isVisible
 } from 'ember-cli-page-object';
 
-const blockContentInput = '.FreestyleDynamic-input:contains(blockContent) textarea';
-const tastefulInput = '.FreestyleDynamic-input:contains(isTasteful:) input';
-const selectInput = '.FreestyleDynamic-input:contains(size:) select';
-const numberInput = '.FreestyleDynamic-input:contains(rank:) input';
-const checkboxInput = '.FreestyleDynamic-input:contains(isVisible:) input';
+const blockContentInput = '.FreestyleDynamic .FreestyleDynamic-input:contains(blockContent) textarea';
+const tastefulInput = '.FreestyleDynamic .FreestyleDynamic-input:contains(isTasteful:) input';
+const selectInput = '.FreestyleDynamic .FreestyleDynamic-input:contains(size:) select';
+const numberInput = '.FreestyleDynamic .FreestyleDynamic-input:contains(rank:) input';
+const checkboxInput = '.FreestyleDynamic .FreestyleDynamic-input:contains(isVisible:) input';
 
 export default PageObject.create({
   visit: visitable('/acceptance?s=Dynamic%20Properties'),

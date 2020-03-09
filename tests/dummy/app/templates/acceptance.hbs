@@ -109,6 +109,35 @@
         </p>
       {{/x-bar}}
     {{/freestyle-dynamic}}
+    {{#let (hash isTasteful=(hash value=false inputType='checkbox' description='Changes to a tasteful color scheme')) as |dynCollectionProps|}}
+      {{#freestyle-dynamic-collection
+        dynamicProperties=dynCollectionProps
+        defaultKey="a"
+        title='Dynamic Properties Collection'
+        as |collection dynamic|
+      }}
+        {{#collection.variant key="a"}}
+          {{#freestyle-usage
+            title="A Tasteful"
+            dynamicProperties=dynCollectionProps
+          }}
+            <p class="dynamic-properties-variant-a {{if dynamic.isTasteful 'tasteful-variant'}}">
+              Variant A is tasteful: {{dynamic.isTasteful}}
+            </p>
+          {{/freestyle-usage}}
+        {{/collection.variant}}
+        {{#collection.variant key="b"}}
+          {{#freestyle-usage
+            title="B Tasteful"
+            dynamicProperties=dynCollectionProps
+          }}
+            <p class="dynamic-properties-variant-b {{if dynamic.isTasteful 'tasteful-variant'}}">
+              Variant B is tasteful: {{dynamic.isTasteful}}
+            </p>
+          {{/freestyle-usage}}
+        {{/collection.variant}}
+      {{/freestyle-dynamic-collection}}
+    {{/let}}
   {{/freestyle-section}}
 
   {{#freestyle-section name="Visual Style" as |section|}}

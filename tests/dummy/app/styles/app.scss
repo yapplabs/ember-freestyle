@@ -37,5 +37,12 @@ p {
   }
 }
 
+$tasteful-bg: #3ff;
+
+.tasteful-variant {
+  background-color: $tasteful-bg;
+  padding: 3px;
+}
+
 @import 'components/x-foo';
 @import 'components/x-bar';

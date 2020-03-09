@@ -3,6 +3,7 @@
     <li
       class='FreestyleCollection-variantListItem {{if (variant-eq activeKey variantKey) 'FreestyleCollection-variantListItem--active'}}'
       onclick={{action 'onClickItem' variantKey}}
+      data-test-variant-key={{variantKey}}
     >
       {{variantKey}}
     </li>

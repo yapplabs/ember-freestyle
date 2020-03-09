@@ -1,0 +1,17 @@
+<div class="FreestyleDynamic-title">{{title}}</div>
+{{#freestyle-annotation}}
+  <form class="FreestyleDynamic-form">
+    {{freestyle-dynamic-fieldset
+      dynamicProperties=dynamicProperties
+      headerTitle=headerTitle
+      changeValueTo=(action 'changeValueTo')
+    }}
+  </form>
+{{/freestyle-annotation}}
+
+{{#freestyle-collection
+  defaultKey=defaultKey
+  inline=true
+  as |collection|}}
+  {{yield collection dynamicPropertyValues}}
+{{/freestyle-collection}}

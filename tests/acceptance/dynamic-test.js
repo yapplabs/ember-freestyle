@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import freestyleDynamic from '../pages/freestyle-dynamic';
+import freestyleDynamicCollection from '../pages/freestyle-dynamic-collection';
 
 module('Acceptance | dynamic', function(hooks) {
   setupApplicationTest(hooks);
@@ -146,6 +147,39 @@ module('Acceptance | dynamic', function(hooks) {
       freestyleDynamic.snippet,
       'isVisible=false',
       'The snippet changes when the checkbox changes'
+    );
+  });
+
+  test('freestyle-dynamic-collection checkbox input', async (assert) => {
+    assert.expect(5);
+    await freestyleDynamicCollection.chooseVariantA();
+    assert.strictEqual(
+      freestyleDynamicCollection.checkboxInputValue,
+      'on',
+      'The input starts with the initial value'
+    );
+    assert.includes(
+      freestyleDynamicCollection.variantAText,
+      'Variant A is tasteful: false',
+      'Variant A shows the initial value'
+    );
+    await freestyleDynamicCollection.toggleTastefulInput();
+    assert.includes(
+      freestyleDynamicCollection.variantAText,
+      'Variant A is tasteful: true',
+      'Variant A shows the new value'
+    );
+    await freestyleDynamicCollection.chooseVariantB();
+    assert.includes(
+      freestyleDynamicCollection.variantBText,
+      'Variant B is tasteful: true',
+      'Variant B shows the current value'
+    );
+    await freestyleDynamicCollection.toggleTastefulInput();
+    assert.includes(
+      freestyleDynamicCollection.variantBText,
+      'Variant B is tasteful: false',
+      'Variant B shows the updated value'
     );
   });
 });
