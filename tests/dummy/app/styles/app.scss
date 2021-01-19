@@ -27,6 +27,7 @@ p {
   margin-bottom: .5rem;
 }
 
+h1, h2, h3 { margin-top: 1em; }
 $link-color: #00bcd4;
 
 a {
@@ -51,6 +52,12 @@ a {
 .u-outdent {
   margin: 0 -1rem;
   padding: .5rem 1rem !important; // sass-lint:disable-line no-important
+}
+
+.readable-width {
+  width: 100%;
+  max-width: 60em;
+  margin: 0 auto;
 }
 
 @import 'components/x-foo';
