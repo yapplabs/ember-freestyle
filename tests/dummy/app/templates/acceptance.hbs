@@ -74,6 +74,34 @@
           @value={{this.isCancelled}}
           @onInput={{fn (mut this.isCancelled)}}
         />
+        <Args.Array
+          @name="Some items or something"
+          @type="String"
+          @description='A list'
+          @items={{this.array}}
+          @onChange={{this.updateArray}}
+        />
+        <Args.Array
+          @name="Some items or something"
+          @type="Boolean"
+          @description='A list'
+          @items={{array true false true}}
+          @onChange={{this.updateArray}}
+        />
+        <Args.Array
+          @name="Some items or something"
+          @type="Number"
+          @description='A list'
+          @items={{array 1 2 3}}
+          @onChange={{this.updateArray}}
+        />
+        <Args.Array
+          @name="Arg"
+          @type="Object"
+          @description='A list'
+          @items={{array (hash name='Bob') (hash name="Sue")}}
+          @readOnly={{true}}
+        />
         <Args.Bool
           @name="isComplete"
           @defaults={{false}}
@@ -81,6 +109,7 @@
           @value={{this.isComplete}}
           @onInput={{fn (mut this.isComplete)}}
         />
+
       </:api>
     </Freestyle::Usage>
     <Freestyle::Usage @slug="ProgressIcon-followup">
